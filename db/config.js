@@ -26,7 +26,6 @@ const crear = async (datos) =>{
             ok:true,
             data:result.rows,
         }
-        // return  result.rows;
         
     } catch (error) {
         console.log("Error en DB :" + error);
@@ -48,7 +47,6 @@ const leer = async () =>{
             ok:true,
             data:result.rows,
         }
-        // return  result.rows;
     } catch (error) {
         console.log("Error en DB :" + error);
         return {
@@ -73,7 +71,6 @@ const actualizar = async (datos) =>{
             ok:true,
             data:result.rows,
         }
-        // return  result.rows;
         
     } catch (error) {
         console.log("Error en DB : " + error);
@@ -100,8 +97,7 @@ const eliminar = async (datos) =>{
             ok:true,
             data:result.rows,
         }
-        // return  result.rows;
-        
+    
     } catch (error) {
         console.log("Error en DB : " + error);
         return{
@@ -179,7 +175,6 @@ const getTransferencias = async () =>{
             ok:true,
             data:result.rows,
         }
-        // return  result.rows;
         
     } catch (error) {
         console.log("Error en DB :" + error);
