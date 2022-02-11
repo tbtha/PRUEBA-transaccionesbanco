@@ -87,7 +87,7 @@ const actualizar = async (datos) =>{
 // delete
 const eliminar = async (datos) =>{
     const query = {
-        text: "DELETE FROM usuarios WHERE id = $1 RETURNING*",
+        text: "DELETE FROM usuarios WHERE id = $1 RETURNING*;",
         values: datos,
         };
     const client = await pool.connect()
@@ -166,7 +166,13 @@ const transferencia = async(monto,emisor,receptor) => {
 const getTransferencias = async () =>{
     const client = await pool.connect()
     const queryGet = {
-        text:"SELECT * FROM transferencias;",
+        text:`select transferencias.fecha, t1.nombre ,t2.nombre, transferencias.monto from transferencias
+        inner join usuarios as t1
+        on t1.id = transferencias.emisor 
+        inner join usuarios as t2
+        on t2.id = transferencias.receptor ;
+        
+        `,
         rowMode: "array"
     }
     try {
